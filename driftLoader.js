@@ -72,21 +72,36 @@
         });
       })();
 
-    drift.on('ready', function (api, payload) {
+//     drift.on('ready', function (api, payload) {
+
+//       console.log("show payload ---> " + JSON.stringify(payload))
+
+//       console.log("show API ----> " + JSON.stringify(api))
         
-        // show the widget when you receive a message
-        // drift.on('message', function (e) {
-        //     api.widget.show()
-        // })
-        // drift.on('chatOpen', function() {
-        // // alert('Chat is open!')
+//         // show the widget when you receive a message
+//         // drift.on('message', function (e) {
+//         //     api.widget.show()
+//         // })
+//         // drift.on('chatOpen', function() {
+//         // // alert('Chat is open!')
 
-        api.showWelcomeMessage({ 
+//         api.showWelcomeMessage({ 
       
-            message:'welcome',
-            // a string. replaces the default welcome message with a custom one.
-        })
+//             message:'welcome',
+//             // a string. replaces the default welcome message with a custom one.
+//         })
 
+// })
+
+drift.on('ready', function (api) {
+  drift.on('startConversation', function (event) {
+    // Enter Google Analytics function here
+    ga('send', 'event', {
+      eventCategory: 'Drift Conversations',
+      eventAction: 'Started Conversation',
+      eventLabel: event.conversationId,
+    });
+  })
 })
         drift.config({
             locale: 'en-US',
