@@ -93,16 +93,22 @@
 
 // })
 
-drift.on('ready', function (api) {
-  drift.on('startConversation', function (event) {
-    // Enter Google Analytics function here
-    ga('send', 'event', {
-      eventCategory: 'Drift Conversations',
-      eventAction: 'Started Conversation',
-      eventLabel: event.conversationId,
-    });
-  })
-})
+// drift.on('ready', function (api) {
+//   drift.on('startConversation', function (event) {
+//     // Enter Google Analytics function here
+//     ga('send', 'event', {
+//       eventCategory: 'Drift Conversations',
+//       eventAction: 'Started Conversation',
+//       eventLabel: event.conversationId,
+//     });
+//   })
+// })
+
+window.drift.on("startConversation", function(data) {
+  console.log("User started a new conversation " + data.conversationId);
+});
+
+
         drift.config({
             locale: 'en-US',
             messages: {
