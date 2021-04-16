@@ -123,3 +123,22 @@ window.drift.on("startConversation", function(data) {
             verticalOffset: 1200,
         })
 
+        var request = require('request');
+        var options = {
+          'method': 'POST',
+          'url': 'https://driftapi.com/conversations/3098931092/messages',
+          'headers': {
+            'Authorization': 'Bearer 9pBAHSXwzcibygiemAmitv0GV59qc7Cx',
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({
+            "body": "response from postman",
+            "type": "chat"
+          })
+        
+        };
+        request(options, function (error, response) {
+          if (error) throw new Error(error);
+          console.log(response.body);
+        });
+        
