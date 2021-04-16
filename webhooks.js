@@ -9,7 +9,7 @@ const { request } = require('express');
 
 
 app.use(bodyParser.json());
-app.listen(process.env.PORT || 5500, () => console.log('Your first bot is listening on port 5500!'));
+app.listen(process.env.PORT || 5500, () => console.log(`Your bot is listening on port 5500!`));
 
 //shows that your public domain is hooked up
 app.get('/', async(request, response) => {
@@ -34,19 +34,30 @@ if (request.method == "POST") {
 // console.log(request.body)
 
 
+var options = {
+    'method': 'POST',
+    'url': 'https://driftapi.com/conversations/3098989957/messages',
+    'headers': {
+      'Authorization': 'Bearer 9pBAHSXwzcibygiemAmitv0GV59qc7Cx',
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({
+      "body": "response from postman",
+      "type": "chat"
+    })
+
+  
+  };
+
+  
+  request2(options, function (error, response) {
+    if (error) throw new Error(error);
+    console.log(response.body);
 
 
-    try {
-
-        return;
-
-    } catch (err) {
-        response.writeHead(500, { "Content-Type": "text/plain" });
-        response.write("Bad Post Data.  Is your data a proper JSON?\n");
-        response.end();
-        return;
-      }
+  });
 
     }
+
 
 })
