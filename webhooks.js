@@ -13,16 +13,29 @@ app.listen(process.env.PORT || 5500, () => console.log(`Your bot is listening on
 
 //shows that your public domain is hooked up
 app.get('/', async(request, response) => {
+
+    // send a response to the html page that is loading on a port
  return response.status(200).send('check it out!!')
 })
 
 //printing the message body in terminal when you receive the event
 app.post('/', async(request, response) => {
+
+
+// log the whole response body
 //  console.log(request.body);
 
- console.log("Chat body is --->> " +request.body.data.body);
+console.log("Chat type is --->> " +request.body.type);
 
-//  if (!data) return response.send(400);
+// conversationId
+console.log("conversationId  --->> " +request.body.data.conversationId);
+
+
+console.log("Chat body is --->> " +request.body.data.body);
+
+
+
+
 
 if (request.method == "POST") {
 
@@ -34,28 +47,25 @@ if (request.method == "POST") {
 // console.log(request.body)
 
 
-var options = {
-    'method': 'POST',
-    'url': 'https://driftapi.com/conversations/3098989957/messages',
-    'headers': {
-      'Authorization': 'Bearer 9pBAHSXwzcibygiemAmitv0GV59qc7Cx',
-      'Content-Type': 'application/json'
-    },
-    body: JSON.stringify({
-      "body": "response from postman",
-      "type": "chat"
-    })
 
-  
-  };
+// Send a response back to the chat as a new chat
+// var options = {
+//     'method': 'POST',
+//     'url': 'https://driftapi.com/conversations/3098989957/messages',
+//     'headers': {
+//       'Authorization': 'Bearer 9pBAHSXwzcibygiemAmitv0GV59qc7Cx',
+//       'Content-Type': 'application/json'
+//     },
+//     body: JSON.stringify({
+//       "body": "response from postman",
+//       "type": "chat"
+//     })
+//   };
 
-  
-  request2(options, function (error, response) {
-    if (error) throw new Error(error);
-    console.log(response.body);
-
-
-  });
+//   request2(options, function (error, response) {
+//     if (error) throw new Error(error);
+//     console.log(response.body);
+//   });
 
     }
 

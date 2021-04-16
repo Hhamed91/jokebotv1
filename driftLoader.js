@@ -72,37 +72,7 @@
         });
       })();
 
-//     drift.on('ready', function (api, payload) {
 
-//       console.log("show payload ---> " + JSON.stringify(payload))
-
-//       console.log("show API ----> " + JSON.stringify(api))
-        
-//         // show the widget when you receive a message
-//         // drift.on('message', function (e) {
-//         //     api.widget.show()
-//         // })
-//         // drift.on('chatOpen', function() {
-//         // // alert('Chat is open!')
-
-//         api.showWelcomeMessage({ 
-      
-//             message:'welcome',
-//             // a string. replaces the default welcome message with a custom one.
-//         })
-
-// })
-
-// drift.on('ready', function (api) {
-//   drift.on('startConversation', function (event) {
-//     // Enter Google Analytics function here
-//     ga('send', 'event', {
-//       eventCategory: 'Drift Conversations',
-//       eventAction: 'Started Conversation',
-//       eventLabel: event.conversationId,
-//     });
-//   })
-// })
 
 window.drift.on("startConversation", function(data) {
   console.log("User started a new conversation " + data.conversationId);
@@ -123,22 +93,6 @@ window.drift.on("startConversation", function(data) {
             verticalOffset: 1200,
         })
 
-        var request = require('request');
-        var options = {
-          'method': 'POST',
-          'url': 'https://driftapi.com/conversations/3098931092/messages',
-          'headers': {
-            'Authorization': 'Bearer 9pBAHSXwzcibygiemAmitv0GV59qc7Cx',
-            'Content-Type': 'application/json'
-          },
-          body: JSON.stringify({
-            "body": "response from postman",
-            "type": "chat"
-          })
+   
         
-        };
-        request(options, function (error, response) {
-          if (error) throw new Error(error);
-          console.log(response.body);
-        });
         
