@@ -17,6 +17,6 @@
     "superagent": "^3.8.2"
   },
   "scripts": {
-    "start": "node firstbot.js"
+    "start": "node ngrok.js"
   }
 }
