@@ -1,8 +1,8 @@
 {
   "name": "firstbot",
   "version": "1.0.0",
-  "main": "firstbot.js",
-  "author": "jason li",
+  "main": "/Users/hhamed/Dropbox/My Mac (hhamed-M1)/Desktop/jokebotv1/driftLoader.js",
+  "author": "Haz Hamed",
   "dependencies": {
     "bluebird": "^3.5.1",
     "body-parser": "^1.18.2",
@@ -17,6 +17,6 @@
     "superagent": "^3.8.2"
   },
   "scripts": {
-    "start": "node driftLoader.js"
+    "start": "node webhooks.js"
   }
 }
