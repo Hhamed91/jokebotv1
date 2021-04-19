@@ -17,6 +17,6 @@
     "superagent": "^3.8.2"
   },
   "scripts": {
-    "start": "node ngrok.js"
+    "start": "node driftLoader.js"
   }
 }
