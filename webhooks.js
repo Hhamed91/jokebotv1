@@ -11,33 +11,41 @@ app.listen(process.env.PORT || 5501, () =>
 );
 
 //shows that your public domain is hooked up
-app.get("/", async (request, response) => {
-  // send a response to the html page that is loading on a port
-  return response.status(200).send("check it out!!");
+// app.get("/", async (request, response) => {
+//   // send a response to the html page that is loading on a port
+//   return response.status(200).send("┌( ͝° ͜ʖ͡°)=ε/̵͇̿̿/’̿’̿ ̿");
+// });
+
+app.get('/', function(req, res) {
+    res.sendFile('index.html', {root: __dirname })
+});
+
+app.get('/test', function(req, res) {
+    res.sendFile('views/test.html', {root: __dirname })
 });
 
 //printing the message body in terminal when you receive the event
 app.post("/", async (request, response) => {
 
-  // console.log("I am getting something before post")
+  console.log("I am getting something before post")
 
   // log the whole response body
   //  console.log(request.body);
 
   //chat type
-  console.log("Chat type is --->> " + request.body.type);
+  //console.log("Chat type is --->> " + request.body.type);
 
   // conversationId
   // console.log("conversationId  --->> " +request.body.data.conversationId);
 
   // Chat body
-  console.log("Chat body is --->> " + request.body.data.body);
+  //console.log("Chat body is --->> " + request.body.data.body);
 
   // orgId
-  console.log("Org ID --->> " + request.body.orgId);
+  //console.log("Org ID --->> " + request.body.orgId);
 
 //  author type 
-console.log("Author info --->> " + JSON.stringify(request.body.data.author) );
+//console.log("Author info --->> " + JSON.stringify(request.body.data.author) );
 
 
   if (request.method == "POST") {
